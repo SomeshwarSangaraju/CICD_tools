@@ -11,7 +11,6 @@ resource "aws_instance" "jenkins" {
   }
   user_data = file("jenkins.sh")
   tags=merge(
-        var.common_tags,
         local.common_tags,
         {
             Name = "${local.common_name_suffix}-jenkins" # roboshop-dev
@@ -32,7 +31,6 @@ resource "aws_instance" "jenkins_agent" {
   }
   user_data = file("jenkins-agent.sh")
   tags=merge(
-        var.common_tags,
         local.common_tags,
         {
             Name = "${local.common_name_suffix}-jenkins_agent" # roboshop-dev
@@ -82,7 +80,6 @@ resource "aws_security_group" "main" {
     }
 
     tags=merge(
-        var.common_tags,
         local.common_tags,
         {
             Name = "${local.common_name_suffix}-jenkins" # roboshop-dev

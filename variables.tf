@@ -7,7 +7,7 @@ variable "project"{
 }
 
 variable "common_tags"{
-    
+    default = ""
 }
 
 variable "zone_id"{
